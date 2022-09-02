@@ -9,6 +9,7 @@ public class HealthRenderer : MonoBehaviour
 {
     [SerializeField] private Health _health;
 
+    private Coroutine _sliderChangeCoroutine;
     private Slider _healthBar;
     private float _speed = 0.001f;
 
@@ -20,8 +21,12 @@ public class HealthRenderer : MonoBehaviour
 
     public void StartSliderChanging()
     {
-        StopCoroutine(ChangeSliderValue());
-        StartCoroutine(ChangeSliderValue());
+        if(_sliderChangeCoroutine != null)
+        {
+            StopCoroutine(_sliderChangeCoroutine);
+        }
+
+        _sliderChangeCoroutine = StartCoroutine(ChangeSliderValue());
     }
 
     private IEnumerator ChangeSliderValue() 
