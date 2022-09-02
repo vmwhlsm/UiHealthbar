@@ -281,7 +281,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 286869237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800232869}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Increase
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &421821040
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,8 +800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637b38cc058d9914186d60eb7d24d3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increase: {fileID: 286869239}
-  _reduce: {fileID: 2060110932}
 --- !u!114 &800232870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,7 +1308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2060110933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800232869}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Reduce
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2060110933
 MonoBehaviour:
   m_ObjectHideFlags: 0

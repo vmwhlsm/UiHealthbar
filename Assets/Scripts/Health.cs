@@ -1,53 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Button _increase;
-    [SerializeField] private Button _reduce;
-    
-    private float _step = 10;
+    public event UnityAction HealthChanged;
 
-    public float Max { get => 100; }
-    public float Min { get => 0; }
+    public readonly float Max = 100;
+    public readonly float Min = 0;
+
     public float Amount { get; private set; }
 
     private void Start()
     {
         Amount = Max;
-        _increase.onClick.AddListener(Increase);
-        _reduce.onClick.AddListener(Reduce);
     }
 
-    private void Increase()
+    public void Increase(int heal)
     {
-        if(Amount + _step > Max)
-        {
-            Amount = Max;
-        }
-        else
-        {
-            Amount += _step;
-        }
+        Amount = Mathf.Clamp(Amount + heal, Min, Max);
+        HealthChanged.Invoke();
     }
 
-    private void Reduce()
+    public void Reduce(int damage)
     {
-        if (Amount - _step < Min)
-        {
-            Amount = Min;
-        }
-        else
-        {
-            Amount -= _step;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        _increase.onClick.RemoveListener(Increase);
-        _reduce.onClick.RemoveListener(Reduce);
+        Amount = Mathf.Clamp(Amount - damage, Min, Max);
+        HealthChanged.Invoke();
     }
 }
