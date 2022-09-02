@@ -39,4 +39,9 @@ public class HealthRenderer : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnDestroy()
+    {
+        _health.HealthChanged -= StartSliderChanging;
+    }
 }
