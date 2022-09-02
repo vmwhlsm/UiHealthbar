@@ -8,9 +8,9 @@ public class Health : MonoBehaviour
 {
     public event UnityAction HealthChanged;
 
-    public readonly float Max = 100;
-    public readonly float Min = 0;
-    public float Amount { get; private set; }
+    public readonly int Max = 100;
+    public readonly int Min = 0;
+    public int Amount { get; private set; }
 
     private void Start()
     {
