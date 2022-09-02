@@ -33,7 +33,8 @@ public class HealthRenderer : MonoBehaviour
     {
         while (_healthBar.value != _health.Amount)
         {
-            _healthBar.value = Mathf.MoveTowards(_healthBar.value, Mathf.InverseLerp(_health.Min, _health.Max, _health.Amount), _speed);
+            float normalizedTarget = Mathf.InverseLerp(_health.Min, _health.Max, _health.Amount);
+            _healthBar.value = Mathf.MoveTowards(_healthBar.value, normalizedTarget, _speed);
             yield return null;
         }
     }
